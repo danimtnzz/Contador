@@ -1,5 +1,6 @@
 package com.example.contador;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -85,5 +86,11 @@ public class MainActivity extends AppCompatActivity {
         }
         contador.setText(textoContador);
         return textoContador;
+    }
+    public void irPantallaInicio(View v){
+        //cambiar de activity
+        //Intent i = new Intent(this, PantallaInicio.class);
+        //startActivity(i);
+        finish();
     }
 }

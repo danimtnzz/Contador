@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PantallaInicio">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="387dp"
+        android:layout_height="65dp"
+        android:text="Esta es la pantalla de inicio"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="121dp"
+        android:layout_height="78dp"
+        android:onClick="irMainActivity"
+        android:text="JUGAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.405"
+        android:backgroundTint="#1AA67A"/>
+
+    <Button
+        android:id="@+id/buttonInfo"
+        android:layout_width="121dp"
+        android:layout_height="78dp"
+        android:onClick="irInfo"
+        android:text="INFO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.565"
+        android:backgroundTint="#1AA67A"/>
+
+    <Button
+        android:id="@+id/buttonOptions"
+        android:layout_width="121dp"
+        android:layout_height="78dp"
+        android:onClick="irOpciones"
+        android:text="OPTIONS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.724"
+        android:backgroundTint="#1AA67A"/>
+
+    <Button
+        android:id="@+id/buttonSalir"
+        android:layout_width="121dp"
+        android:layout_height="78dp"
+        android:onClick="cerrarApp"
+        android:text="SALIR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.879"
+        android:backgroundTint="#1AA67A"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

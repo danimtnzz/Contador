@@ -37,7 +37,7 @@
     <LinearLayout
         android:layout_width="322dp"
         android:layout_height="147dp"
-        android:background="#2b85cd"
+        android:background="#1AA67A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -49,17 +49,17 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="26dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
             android:text="Mejora"
             android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.336"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.757" />
-
 
         <Button
             android:id="@+id/botonmultiplicador"
@@ -84,6 +84,7 @@
             android:layout_marginTop="-35dp"
             android:text="Aumenta en *2 el valor del click"
             android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.865"
@@ -92,6 +93,18 @@
             app:layout_constraintVertical_bias="0.825" />
 
     </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.954"
+        android:src="@drawable/baseline_arrow_back_ios_new_24"
+        android:onClick="irPantallaInicio"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
