@@ -65,15 +65,7 @@ public class MainActivity extends AppCompatActivity {
         actualizarTextoContador();
     }
 
-    public void multiplicador(View v) {
-        if (cont.compareTo(BigInteger.valueOf(valorMejora)) >= 0) {
-            cont = cont.subtract(BigInteger.valueOf(valorMejora));
-            valorsuma *= 2;
-            valorMejora += 20;
-            botonmultiplicador.setText("Por cada click sumas " + valorsuma + " camporrocoins");
-            actualizarTextoContador();
-        }
-    }
+
 
     private String actualizarTextoContador() {
         String textoContador;
@@ -92,5 +84,14 @@ public class MainActivity extends AppCompatActivity {
         //Intent i = new Intent(this, PantallaInicio.class);
         //startActivity(i);
         finish();
+    }
+    public void irPantallaMejora(View v){
+        //cambiar de activity
+        Intent i = new Intent(this, PantallaMejora.class);
+        i.putExtra("cont",cont);
+        i.putExtra("valorMejora",valorMejora);
+        i.putExtra("valorSuma",valorsuma);
+        i.putExtra("botonMultiplicador",botonmultiplicador);
+        startActivity(i);
     }
 }
