@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         //cambiar de activity
         Intent i = new Intent(this, PantallaMejora.class);
         i.putExtra("monedas", contador.getText());
+        i.putExtra("cont", cont);
         startActivity(i);
     }
 }

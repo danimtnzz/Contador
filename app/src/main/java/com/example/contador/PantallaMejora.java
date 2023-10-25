@@ -22,6 +22,7 @@ public class PantallaMejora extends AppCompatActivity {
         Bundle param = getIntent().getExtras();
         textoContador2.setText(param.getString("monedas"));
     }
+
     public void irPantallaInicio(View v){
         //cambiar de activity
         //Intent i = new Intent(this, PantallaInicio.class);
