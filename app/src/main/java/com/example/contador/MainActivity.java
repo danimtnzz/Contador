@@ -12,8 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView2;
     int valorMejora = 100;
     int incrementoAutomatico = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         imageView2 = findViewById(R.id.imageView2);
         contador.setText(String.valueOf(cont));
         ejecutarHilo();
+
+
     }
 
     private void ejecutarHilo() {

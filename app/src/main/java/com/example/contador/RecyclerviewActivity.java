@@ -6,19 +6,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class RecyclerviewActivity extends AppCompatActivity {
-
+    List<Jugador> jugadores = new ArrayList<Jugador>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recyclerview);
-        RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerview);
-        rv.setHasFixedSize(true);
+
+
+        RecyclerView rv =  findViewById(R.id.recycler);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        List<String> lista = Arrays.asList("Gustavo", "Daniel", "Cecilia", "Diego");
-        rv.setAdapter((RecyclerView.Adapter) lista);
+        rv.setAdapter(new JugadoresAdapter(getApplicationContext(),jugadores));
+        jugadores.add(new Jugador("pepe","5",R.drawable.foto_dani_home_counter));
+        jugadores.add(new Jugador("xavi","5",R.drawable.xavi));
+        jugadores.add(new Jugador("ter stegen","5",R.drawable.terstegen));
+        jugadores.add(new Jugador("araujo","5",R.drawable.araujo));
+        jugadores.add(new Jugador("kounde","5",R.drawable.kounde));
+        jugadores.add(new Jugador("joao cancelo","5",R.drawable.joaocancelo));
+        jugadores.add(new Jugador("pedri","5",R.drawable.pedri));
+
     }
 }
