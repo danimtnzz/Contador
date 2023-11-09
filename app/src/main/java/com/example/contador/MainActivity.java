@@ -1,6 +1,7 @@
 package com.example.contador;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         contador = findViewById(R.id.textoContador);
         botonmultiplicador = findViewById(R.id.botonmultiplicador);
         imageView2 = findViewById(R.id.imageView2);
+
         contador.setText(String.valueOf(cont));
         ejecutarHilo();
 

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,5 +30,11 @@ public class RecyclerviewActivity extends AppCompatActivity {
         jugadores.add(new Jugador("joao cancelo","5",R.drawable.joaocancelo));
         jugadores.add(new Jugador("pedri","5",R.drawable.pedri));
 
+    }
+    public void irPantallaInicio(View v){
+        //cambiar de activity
+        //Intent i = new Intent(this, PantallaInicio.class);
+        //startActivity(i);
+        finish();
     }
 }

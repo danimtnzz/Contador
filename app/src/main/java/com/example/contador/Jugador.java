@@ -34,5 +34,9 @@ public class Jugador {
     public void setImagen(int imagen) {
         Imagen = imagen;
     }
+    @Override
+    public String toString() {
+        return nick; // Devuelve el nombre del jugador como representación de cadena.
+    }
 
 }

@@ -1,13 +1,12 @@
 package com.example.contador;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PantallaInicio extends AppCompatActivity {
 
@@ -15,7 +14,6 @@ public class PantallaInicio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_inicio);
-
     }
 
     @Override
@@ -32,14 +30,13 @@ public class PantallaInicio extends AppCompatActivity {
             // Acción para el elemento del RecyclerView
             Intent intent = new Intent(this, RecyclerviewActivity.class);
             startActivity(intent);
-            return true;}
-//        } else if (id == R.id.listview_item) {
-//            // Acción para el elemento del ListView
-//            Intent intent = new Intent(this, ListViewActivity.class);
-//            startActivity(intent);
-//            return true;
-//        }
-
+            return true;
+        } else if (id == R.id.listview) {
+            // Acción para el elemento del ListView
+            Intent intent = new Intent(this, ListViewActivity.class);
+            startActivity(intent);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 

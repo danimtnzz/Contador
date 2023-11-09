@@ -3,15 +3,16 @@
     <style name="Base.Theme.Contador" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#1AA67A</item>
     </style>
 
     <style name="Theme.Contador" parent="Base.Theme.Contador" />
     <style name="AppTheme" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">#1AA67A</item>
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
         <!-- Otros atributos de estilo aquí -->
         <item name="android:buttonStyle">@style/RoundedButtonStyle</item>
     </style>
-    <!-- Define el estilo personalizado para los botones con cornerRadius -->
     <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar.Solid">
         <item name="android:backgroundTint">#1AA67A</item>
     </style>
