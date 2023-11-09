@@ -31,6 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.405"
+        app:cornerRadius="100dp"
         android:backgroundTint="#1AA67A"/>
 
     <Button
@@ -44,6 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.565"
+        app:cornerRadius="100dp"
         android:backgroundTint="#1AA67A"/>
 
     <Button
@@ -57,6 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.724"
+        app:cornerRadius="100dp"
         android:backgroundTint="#1AA67A"/>
 
     <Button
@@ -70,6 +73,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.879"
+        app:cornerRadius="100dp"
         android:backgroundTint="#1AA67A"/>
 
 

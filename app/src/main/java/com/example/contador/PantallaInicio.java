@@ -15,6 +15,7 @@ public class PantallaInicio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_inicio);
+
     }
 
     @Override
@@ -24,9 +25,24 @@ public class PantallaInicio extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.recyclerview) {
+            // Acción para el elemento del RecyclerView
+            Intent intent = new Intent(this, RecyclerviewActivity.class);
+            startActivity(intent);
+            return true;}
+//        } else if (id == R.id.listview_item) {
+//            // Acción para el elemento del ListView
+//            Intent intent = new Intent(this, ListViewActivity.class);
+//            startActivity(intent);
+//            return true;
+//        }
+
+        return super.onOptionsItemSelected(item);
     }
+
 
     public void irMainActivity(View v){
         //cambiar de activity
