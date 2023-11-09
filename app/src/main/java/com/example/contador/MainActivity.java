@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView2;
     int valorMejora = 100;
     int incrementoAutomatico = 1;
-
+    private MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         contador = findViewById(R.id.textoContador);
         botonmultiplicador = findViewById(R.id.botonmultiplicador);
         imageView2 = findViewById(R.id.imageView2);
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.sonido_moneda);
         contador.setText(String.valueOf(cont));
         ejecutarHilo();
 
@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         imageView2.startAnimation(fade_in);
         cont = cont.add(BigInteger.valueOf(valorsuma));
         actualizarTextoContador();
+        mediaPlayer.start();
     }
 
     public void multiplicador(View v) {
