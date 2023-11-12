@@ -20,7 +20,7 @@
     <!-- Define el estilo personalizado para los botones con cornerRadius -->
     <style name="RoundedButtonStyle" parent="Widget.AppCompat.Button">
         <item name="android:textColor">@color/white</item>
-        <item name="android:backgroundTint">#1AA67A</item>
+<!--        <item name="android:backgroundTint">#1AA67A</item>-->
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <!-- Ajusta el radio de las esquinas según tus preferencias -->

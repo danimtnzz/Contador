@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="322dp"
         android:layout_height="147dp"
-        android:background="#1AA67A"
+        android:background="#D5699A96"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
