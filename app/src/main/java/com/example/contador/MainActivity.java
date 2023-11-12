@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         contador.setText(String.valueOf(cont));
         ejecutarHilo();
 
-
     }
 
     private void ejecutarHilo() {
