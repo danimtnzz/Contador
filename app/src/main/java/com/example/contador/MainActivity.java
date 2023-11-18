@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this, R.raw.sonido_moneda);
         contador.setText(String.valueOf(cont));
         ejecutarHilo();
-
     }
 
     private void ejecutarHilo() {
