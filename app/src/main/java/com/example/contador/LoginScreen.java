@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginScreen extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class LoginScreen extends AppCompatActivity {
     EditText username, password;
     Button buttonLogin;
     DBHelper DB;
+    TextView forgot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +23,7 @@ public class LoginScreen extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username1);
         password = (EditText) findViewById(R.id.password1);
         buttonLogin = (Button) findViewById(R.id.buttonSignIn1);
-
+        forgot = (TextView) findViewById(R.id.buttonForgot);
         DB = new DBHelper(this);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +44,13 @@ public class LoginScreen extends AppCompatActivity {
                         Toast.makeText(LoginScreen.this, "Credenciales inválidas!", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PasswordActivity.class);
+                startActivity(intent);
             }
         });
     }
