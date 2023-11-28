@@ -37,12 +37,16 @@ public class PantallaInicio extends AppCompatActivity {
             Intent intent = new Intent(this, ListViewActivity.class);
             startActivity(intent);
             return true;
-        }else if (id == R.id.dialog) {
+        } else if (id == R.id.dialog) {
             AlertDialog.Builder constructor = new AlertDialog.Builder(this);
             constructor.setMessage("Dialog de prueba")
                     .setTitle("Título del dialog")
                     .setIcon(R.mipmap.ic_launcher);
             constructor.show();
+            return true;
+        } else if (id == R.id.ranking) {
+            Intent intent = new Intent(this, Ranking.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
