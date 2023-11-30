@@ -36,6 +36,7 @@
         app:srcCompat="@drawable/foto_dani_home_counter" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="irPantallaInicio"
@@ -61,6 +62,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.866" />
+
+    <Button
+        android:id="@+id/botonRanking"
+        android:layout_width="179dp"
+        android:layout_height="69dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="4dp"
+        android:onClick="irPantallaRanking"
+        android:text="Ir al Ranking"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

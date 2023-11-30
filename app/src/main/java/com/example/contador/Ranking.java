@@ -1,14 +1,12 @@
 package com.example.contador;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-
-import com.example.contador.DBHelper;
-import com.example.contador.Jugador;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,19 +21,26 @@ public class Ranking extends ListActivity implements AdapterView.OnItemClickList
         setContentView(R.layout.activity_ranking);
 
         dbHelper = new DBHelper(this);
-        consultarListaPersonas();
 
-        // Crear un adaptador personalizado para mostrar los datos en el ListView
-        JugadoresListViewAdapter adapter = new JugadoresListViewAdapter(this, jugadoresMyDb);
+        // Obtener el intent que inició esta actividad
+        Intent intent = getIntent();
+        String monedas = "0"; // Valor predeterminado para las monedas
 
-        // Configurar el adaptador para el ListView
-        setListAdapter(adapter);
+        if (intent != null) {
+            Bundle param = intent.getExtras();
+            if (param != null) {
+                String monedasFromIntent = param.getString("monedas");
+                if (monedasFromIntent != null && !monedasFromIntent.isEmpty()) {
+                    monedas = monedasFromIntent;
+                }
+            }
+        }
 
-        // Configurar un oyente de clics en los elementos del ListView
-        getListView().setOnItemClickListener(this);
+        // Consultar la lista de personas y configurar el adaptador para el ListView
+        consultarListaPersonas(monedas);
     }
 
-    private void consultarListaPersonas() {
+    private void consultarListaPersonas(String monedas) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT username FROM users", null);
 
@@ -47,7 +52,7 @@ public class Ranking extends ListActivity implements AdapterView.OnItemClickList
                 do {
                     String username = cursor.getString(columnIndex);
                     // Crear un Jugador para cada nombre de usuario y agregarlo a la lista jugadoresMyDb
-                    jugadoresMyDb.add(new Jugador(username, "5", R.drawable.foto_dani_home_counter));
+                    jugadoresMyDb.add(new Jugador(username, monedas, R.drawable.foto_dani_home_counter));
                 } while (cursor.moveToNext());
             }
         }
@@ -55,6 +60,15 @@ public class Ranking extends ListActivity implements AdapterView.OnItemClickList
         if (cursor != null) {
             cursor.close();
         }
+
+        // Crear un adaptador personalizado para mostrar los datos en el ListView
+        JugadoresListViewAdapter adapter = new JugadoresListViewAdapter(this, jugadoresMyDb);
+
+        // Configurar el adaptador para el ListView
+        setListAdapter(adapter);
+
+        // Configurar un oyente de clics en los elementos del ListView
+        getListView().setOnItemClickListener(this);
     }
 
     @Override

@@ -11,19 +11,26 @@ import androidx.annotation.Nullable;
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME = "Login.db";
+    private static final int DATABASE_VERSION = 2; // Cambia la versión de la base de datos
+
 
     public DBHelper(Context context) {
-        super(context, "Login.db", null, 1);
+        super(context, "Login.db", null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
+        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT, monedas TEXT)");
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
-        MyDB.execSQL("drop Table if exists users");
+    public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
+        if (oldVersion < 2) {
+            MyDB.execSQL("ALTER TABLE users ADD COLUMN monedas TEXT");
+        } else {
+            MyDB.execSQL("DROP TABLE IF EXISTS users");
+            onCreate(MyDB);
+        }
     }
     public Boolean insertData(String username, String password){
         SQLiteDatabase MyDB = this.getWritableDatabase();
@@ -61,5 +68,13 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+    public boolean actualizarMonedasUsuario(String username, String cantidadMonedas) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("monedas", cantidadMonedas);
+        long result = MyDB.update("users", contentValues, "username = ?", new String[]{username});
+
+        return result != -1;
     }
 }
