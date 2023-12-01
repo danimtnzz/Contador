@@ -40,7 +40,6 @@
             android:layout_height="69dp"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="10dp"
-            android:onClick="multiplicador"
             android:text="Comprar por 100 monedas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

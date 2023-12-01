@@ -2,6 +2,7 @@ package com.example.contador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,12 +22,24 @@ public class PantallaMejora extends AppCompatActivity {
         textoContador2 = (TextView) findViewById(R.id.textoContador2);
         Bundle param = getIntent().getExtras();
         textoContador2.setText(param.getString("monedas"));
+        botonMejora.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.putExtra("mejora", "multiplicacion");
+            setResult(PantallaMejora.RESULT_OK, intent);
+            finish();
+        });
     }
+
+
 
     public void irPantallaInicio(View v){
         //cambiar de activity
         //Intent i = new Intent(this, PantallaInicio.class);
         //startActivity(i);
+
+        Intent data = new Intent();
+        setResult(RESULT_CANCELED, data);
+
         finish();
     }
 

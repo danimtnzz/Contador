@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +34,21 @@ public class MainActivity extends AppCompatActivity {
     int valorMejora = 100;
     int incrementoAutomatico = 1;
     private MediaPlayer mediaPlayer;
+
+    private ActivityResultLauncher<Intent> launcher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            (result) -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    String mejora = result.getData().getStringExtra("mejora");
+                    switch (mejora) {
+                        case "multiplicacion":
+                            multiplicador(null);
+                            break;
+                    }
+                }
+            }
+    );
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, PantallaMejora.class);
         i.putExtra("monedas", contador.getText());
         i.putExtra("cont", cont);
-        startActivity(i);
+        i.putExtra("valorsuma", valorsuma);
+        launcher.launch(i);
     }
 }
