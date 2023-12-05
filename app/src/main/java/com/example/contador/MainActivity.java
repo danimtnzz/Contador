@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     String mejora = result.getData().getStringExtra("mejora");
                     switch (mejora) {
                         case "multiplicacion":
-                            multiplicador(null);
+                            multiplicador();
                             break;
                     }
                 }
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void multiplicador(View v) {
+    public void multiplicador() {
         if (cont.compareTo(BigInteger.valueOf(valorMejora)) >= 0) {
             cont = cont.subtract(BigInteger.valueOf(valorMejora));
             valorsuma *= 2;

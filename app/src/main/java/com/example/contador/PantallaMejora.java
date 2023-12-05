@@ -18,8 +18,8 @@ public class PantallaMejora extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_mejora);
-        botonMejora = (Button) findViewById(R.id.botonmultiplicador);
-        textoContador2 = (TextView) findViewById(R.id.textoContador2);
+        botonMejora = findViewById(R.id.botonmultiplicador);
+        textoContador2 = findViewById(R.id.textoContador2);
         Bundle param = getIntent().getExtras();
         textoContador2.setText(param.getString("monedas"));
         botonMejora.setOnClickListener(v -> {
