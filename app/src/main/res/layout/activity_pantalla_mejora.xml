@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626">
+        app:layout_constraintVertical_bias="0.58">
 
 
         <TextView
@@ -50,15 +50,58 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="322dp"
+        android:layout_height="147dp"
+        android:background="#D567C69D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.841">
+
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:text="Mejora 2"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.336"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.757" />
+
+        <Button
+            android:id="@+id/botonTiempo"
+            android:layout_width="179dp"
+            android:layout_height="69dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:text="Comprar mejora de tiempo (coins/2)"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.888" />
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="320dp"
         android:layout_height="160dp"
         android:layout_gravity="center"
         android:layout_marginLeft="-170dp"
         android:layout_marginTop="-35dp"
-        android:text="Aumenta en *2 el valor del click"
+        android:text="La mejora 1 multiplica * 2 en click \n \n La mejora 2 multiplica *2 el valor que se suma cada segundo"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="20dp"
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -11,6 +11,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     int valorMejora = 100;
     int incrementoAutomatico = 1;
     private MediaPlayer mediaPlayer;
+    MiAplicación miAplicación;
 
     private ActivityResultLauncher<Intent> launcher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -44,17 +46,23 @@ public class MainActivity extends AppCompatActivity {
                         case "multiplicacion":
                             multiplicador();
                             break;
+                        case "nuevoTiempo":
+                            multiplicadorTiempo();
+                            break;
                     }
                 }
             }
     );
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        miAplicación = (MiAplicación) getApplication();
         contador = findViewById(R.id.textoContador);
         botonmultiplicador = findViewById(R.id.botonmultiplicador);
+
         imageView2 = findViewById(R.id.imageView2);
         mediaPlayer = MediaPlayer.create(this, R.raw.sonido_moneda);
         contador.setText(String.valueOf(cont));
@@ -90,17 +98,13 @@ public class MainActivity extends AppCompatActivity {
         actualizarTextoContador();
         // Llamar al método para actualizar las monedas en la base de datos
         actualizarMonedasEnDB(String.valueOf(cont));
+        //sonido del click
         mediaPlayer.start();
     }
     private void actualizarMonedasEnDB(String cantidadMonedas) {
         DBHelper dbHelper = new DBHelper(this);
-        boolean actualizado = dbHelper.actualizarMonedasUsuario("nombre_de_usuario", cantidadMonedas);
+        dbHelper.actualizarMonedasUsuario(miAplicación.getCurrentUsername(), cantidadMonedas);
 
-        if (actualizado) {
-            // La cantidad de monedas se ha actualizado correctamente en la base de datos
-        } else {
-            // Hubo un error al actualizar las monedas en la base de datos
-        }
     }
 
     public void multiplicador() {
@@ -109,15 +113,29 @@ public class MainActivity extends AppCompatActivity {
             valorsuma *= 2;
             valorMejora += 20;
             actualizarMonedasEnDB(String.valueOf(cont));
-            botonmultiplicador.setText("La mejora cuesta " + valorMejora + " coins");
+            botonmultiplicador.setText("Multiplicador:" + valorMejora + " coins");
             actualizarTextoContador();
+        } else if (cont.compareTo(BigInteger.valueOf(valorMejora)) <0 ){
+            Toast.makeText(this, "Tienes que llegar a 100 monedas", Toast.LENGTH_SHORT).show();
         }
+    }
+    private void multiplicadorTiempo() {
+        if(cont.compareTo(BigInteger.valueOf(valorMejora)) >=0){
+            cont = cont.subtract(BigInteger.valueOf(valorMejora));
+            incrementoAutomatico *= 2;
+            valorMejora = (cont.divide(BigInteger.valueOf(2))).add(BigInteger.valueOf(valorMejora)).intValue();
+            actualizarMonedasEnDB(String.valueOf(cont));
+            actualizarTextoContador();
+        } else if (cont.compareTo(BigInteger.valueOf(valorMejora)) <0 ){
+            Toast.makeText(this, "Tienes que llegar a 100 monedas", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private String actualizarTextoContador() {
         String textoContador;
         if (cont.compareTo(BigInteger.valueOf(1000)) >= 0) {
-            BigInteger mil = BigInteger.valueOf(1000);
+//            BigInteger mil = BigInteger.valueOf(1000);
 
             textoContador = cont + " mil";
         } else {

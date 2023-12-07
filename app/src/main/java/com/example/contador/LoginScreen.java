@@ -37,6 +37,10 @@ public class LoginScreen extends AppCompatActivity {
                 else {
                     Boolean checkuserpass = DB.checkUsernamePassword(user, pass);
                     if(checkuserpass==true){
+                        // Obtengo la instancia de MiAplicación y doy el nombre de usuario actual
+                        MiAplicación miAplicación = (MiAplicación) getApplication();
+                        miAplicación.setCurrentUsername(user);
+
                         Toast.makeText(LoginScreen.this, "Sesión iniciada correctamente!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), PantallaInicio.class);
                         startActivity(intent);
