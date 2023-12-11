@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             botonmultiplicador.setText("Multiplicador:" + valorMejora + " coins");
             actualizarTextoContador();
         } else if (cont.compareTo(BigInteger.valueOf(valorMejora)) <0 ){
-            Toast.makeText(this, "Tienes que llegar a 100 monedas", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Tienes que llegar a "+valorMejora+" monedas", Toast.LENGTH_SHORT).show();
         }
     }
     private void multiplicadorTiempo() {
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             actualizarMonedasEnDB(String.valueOf(cont));
             actualizarTextoContador();
         } else if (cont.compareTo(BigInteger.valueOf(valorMejora)) <0 ){
-            Toast.makeText(this, "Tienes que llegar a 100 monedas", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Tienes que llegar a "+valorMejora+" monedas", Toast.LENGTH_SHORT).show();
         }
 
     }
