@@ -63,7 +63,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:passwordToggleEnabled = "true"
         app:passwordToggleTint="@color/black"
-        app:passwordToggleDrawable="@drawable/baseline_remove_red_eye_24"
+
         app:layout_constraintTop_toBottomOf="@+id/username1">
 
         <!-- Aquí coloca el EditText o cualquier otro contenido que vaya dentro del TextInputLayout -->
