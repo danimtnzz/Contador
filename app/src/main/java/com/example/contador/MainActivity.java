@@ -121,9 +121,10 @@ public class MainActivity extends AppCompatActivity {
     }
     private void multiplicadorTiempo() {
         if(cont.compareTo(BigInteger.valueOf(valorMejora)) >=0){
-            cont = cont.subtract(BigInteger.valueOf(valorMejora));
+            cont = cont.subtract(cont.divide(BigInteger.valueOf(2)));
             incrementoAutomatico *= 2;
-            valorMejora = (cont.divide(BigInteger.valueOf(2))).add(BigInteger.valueOf(valorMejora)).intValue();
+            valorMejora += 20;
+//            (cont.divide(BigInteger.valueOf(2))).add(BigInteger.valueOf(valorMejora)).intValue();
             actualizarMonedasEnDB(String.valueOf(cont));
             actualizarTextoContador();
         } else if (cont.compareTo(BigInteger.valueOf(valorMejora)) <0 ){
