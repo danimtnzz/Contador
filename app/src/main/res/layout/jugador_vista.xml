@@ -25,6 +25,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="monedas"
+        android:textSize="19dp"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:id="@+id/mejoras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="mejoras"
         android:textSize="19dp" />
 
 </LinearLayout>

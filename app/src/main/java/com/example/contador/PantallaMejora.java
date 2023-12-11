@@ -14,6 +14,8 @@ public class PantallaMejora extends AppCompatActivity {
 
     TextView textoContador2;
     Button botonMejora, botonTiempo;
+    MiAplicación miAplicación;
+    int cantidadMejoras = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,17 +26,26 @@ public class PantallaMejora extends AppCompatActivity {
         Bundle param = getIntent().getExtras();
         textoContador2.setText(param.getString("monedas"));
         botonMejora.setOnClickListener(v -> {
+            cantidadMejoras++;
+            actualizarMejorasEnDB(String.valueOf(cantidadMejoras));
             Intent intent = new Intent();
             intent.putExtra("mejora", "multiplicacion");
             setResult(PantallaMejora.RESULT_OK, intent);
             finish();
         });
         botonTiempo.setOnClickListener(v -> {
+            cantidadMejoras++;
+            actualizarMejorasEnDB(String.valueOf(cantidadMejoras));
             Intent intent = new Intent();
             intent.putExtra("mejora", "nuevoTiempo");
             setResult(PantallaMejora.RESULT_OK, intent);
             finish();
         });
+    }
+    private void actualizarMejorasEnDB(String cantidadMejoras) {
+        DBHelper dbHelper = new DBHelper(this);
+        dbHelper.actualizarMejorasUsuario(miAplicación.getCurrentUsername(), cantidadMejoras);
+
     }
 
 

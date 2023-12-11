@@ -42,20 +42,22 @@ public class Ranking extends ListActivity implements AdapterView.OnItemClickList
 
     private void consultarListaPersonas() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT username, monedas FROM users", null);
+        Cursor cursor = db.rawQuery("SELECT username, monedas, mejoras FROM users", null);
 
         jugadoresMyDb.clear(); // Limpiar la lista de jugadores antes de agregar nuevos usuarios
 
         if (cursor != null && cursor.getCount() > 0) {
             int columnIndex = cursor.getColumnIndex("username");
             int columnIndexMonedas = cursor.getColumnIndex("monedas");
+            int columnIndexMejoras = cursor.getColumnIndex("mejoras");
             if (columnIndex != -1) {
                 cursor.moveToFirst();
                 do {
                     String username = cursor.getString(columnIndex);
                     String monedas = cursor.getString(columnIndexMonedas);
+                    String mejoras = cursor.getString(columnIndexMejoras);
                     // Crear un Jugador para cada nombre de usuario y agregarlo a la lista jugadoresMyDb
-                    jugadoresMyDb.add(new Jugador(username, monedas, R.drawable.foto_dani_home_counter));
+                    jugadoresMyDb.add(new Jugador(username, monedas, mejoras, R.drawable.foto_dani_home_counter));
                 } while (cursor.moveToNext());
             }
         }

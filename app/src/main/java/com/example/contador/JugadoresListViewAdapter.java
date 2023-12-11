@@ -42,12 +42,14 @@ public class JugadoresListViewAdapter extends BaseAdapter {
         ImageView imagen = convertView.findViewById(R.id.imagen);
         TextView nick = convertView.findViewById(R.id.nick);
         TextView monedas = convertView.findViewById(R.id.monedas);
+        TextView mejoras = convertView.findViewById(R.id.mejoras);
 
         Jugador jugador = jugadores.get(position);
 
         imagen.setImageResource(jugador.getImagen());
         nick.setText(jugador.getNick());
         monedas.setText(jugador.getMonedas());
+        mejoras.setText(jugador.getMejoras());
 
         return convertView;
     }

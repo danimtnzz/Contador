@@ -4,8 +4,9 @@ public class Jugador {
     String nick;
     String monedas;
     int Imagen;
+    String mejoras;
 
-    public Jugador(String nick, String monedas, int imagen) {
+    public Jugador(String nick, String monedas, String mejoras, int imagen) {
         this.nick = nick;
         this.monedas = monedas;
         Imagen = imagen;
@@ -21,6 +22,9 @@ public class Jugador {
 
     public String getMonedas() {
         return monedas;
+    }
+    public String getMejoras() {
+        return mejoras;
     }
 
     public void setMonedas(String monedas) {

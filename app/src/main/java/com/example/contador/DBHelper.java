@@ -20,13 +20,15 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT, monedas TEXT)");
+        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT, monedas TEXT, mejoras TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
         if (oldVersion < 2) {
             MyDB.execSQL("ALTER TABLE users ADD COLUMN monedas TEXT");
+            MyDB.execSQL("ALTER TABLE users ADD COLUMN mejoras TEXT");
+
         } else {
             MyDB.execSQL("DROP TABLE IF EXISTS users");
             onCreate(MyDB);
@@ -73,6 +75,14 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("monedas", cantidadMonedas);
+        long result = MyDB.update("users", contentValues, "username = ?", new String[]{username});
+
+        return result != -1;
+    }
+    public boolean actualizarMejorasUsuario(String username, String cantidadMejoras) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("mejoras", cantidadMejoras);
         long result = MyDB.update("users", contentValues, "username = ?", new String[]{username});
 
         return result != -1;

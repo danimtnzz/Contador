@@ -22,13 +22,13 @@ public class ListViewActivity extends ListActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview);
 
-        jugadores.add(new Jugador("pepe","5",R.drawable.foto_dani_home_counter));
-        jugadores.add(new Jugador("xavi","5",R.drawable.xavi));
-        jugadores.add(new Jugador("ter stegen","5",R.drawable.terstegen));
-        jugadores.add(new Jugador("araujo","5",R.drawable.araujo));
-        jugadores.add(new Jugador("kounde","5",R.drawable.kounde));
-        jugadores.add(new Jugador("joao cancelo","5",R.drawable.joaocancelo));
-        jugadores.add(new Jugador("pedri","5",R.drawable.pedri));
+        jugadores.add(new Jugador("pepe","5","0",R.drawable.foto_dani_home_counter));
+        jugadores.add(new Jugador("xavi","5","0",R.drawable.xavi));
+        jugadores.add(new Jugador("ter stegen","5","0",R.drawable.terstegen));
+        jugadores.add(new Jugador("araujo","5","0",R.drawable.araujo));
+        jugadores.add(new Jugador("kounde","5","0",R.drawable.kounde));
+        jugadores.add(new Jugador("joao cancelo","5","0",R.drawable.joaocancelo));
+        jugadores.add(new Jugador("pedri","5","0",R.drawable.pedri));
         // Crear un adaptador personalizado para mostrar los datos en el ListView
         JugadoresListViewAdapter adapter = new JugadoresListViewAdapter(this,jugadores);
 

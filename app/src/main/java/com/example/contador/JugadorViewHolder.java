@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class JugadorViewHolder extends RecyclerView.ViewHolder{
     ImageView imagen;
-    TextView nick, monedas;
+    TextView nick, monedas, mejoras;
     public JugadorViewHolder(@NonNull View itemView) {
         super(itemView);
         imagen=itemView.findViewById(R.id.imagen);
         nick=itemView.findViewById(R.id.nick);
         monedas=itemView.findViewById(R.id.monedas);
+        mejoras=itemView.findViewById(R.id.mejoras);
     }
 }
